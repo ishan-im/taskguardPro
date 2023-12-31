@@ -32,11 +32,10 @@ const removeTokenFromLocalStorage = () => {
 const loadStateFromLocalStorage = () => {
 	try {
 		const token = loadTokenFromLocalStorage();
-		console.log('token->', token);
 		const storedState = localStorage.getItem(token);
-		console.log('storedState->', storedState);
+		
 		if (storedState) {
-			console.log(storedState);
+			
 			return JSON.parse(storedState);
 		}
 		return { todos: [] };

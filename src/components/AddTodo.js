@@ -78,9 +78,7 @@ function AddTodo() {
 											: 'opacity-100'
 									} rounded-[20px] shadow justify-center items-center gap-2 flex`}
 									disabled={ !inputVal}
-									onClick={() => {
-										console.log(inputVal);
-									}}>
+									>
 									<div className='Next text-white text-base font-semibold'>
 										Add task
 								</div>

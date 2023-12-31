@@ -27,7 +27,7 @@ const todoToUpdate = useSelector((state) =>
 
 	const updateTodoHandler = () => {
 		if (updatedText.length === 0) return;
-		console.log(updatedText,id);
+		
 		dispatch(updateTodos({ id, text: updatedText }));
 		closeModal();
     };

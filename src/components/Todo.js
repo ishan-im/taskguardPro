@@ -20,7 +20,6 @@ function Todo() {
 	
 	const todo = useSelector((state) => state.todos.todos)
 
-	console.log(todo)
   
 
   return (

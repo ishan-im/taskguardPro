@@ -10,7 +10,7 @@ const Login = () => {
 
 	const token = useSelector((state) => state.auth.token);
 
-	console.log(token);
+	
 
 	const todo = useSelector((state) => state.todos.todos);
 
@@ -41,10 +41,7 @@ const Login = () => {
 				// Set the connected wallet in state
 				dispatch(setToken(accounts[0]));
 				setConnectedWallet(accounts[0]);
-				const state = loadStateFromLocalStorage();
-
-				console.log(state,todo);
-
+				
 				// Listen for account changes
 				window.ethereum.on('accountsChanged', (newAccounts) => {
 					setConnectedWallet(newAccounts[0]);
@@ -74,9 +71,7 @@ const Login = () => {
 						dispatch(setToken(accounts[0]));
 				setConnectedWallet(accounts[0]);
 				
-				const state = loadStateFromLocalStorage();
-
-				console.log(state,todo);
+				
 
 						// Listen for account changes
 						window.ethereum.on('accountsChanged', (newAccounts) => {
@@ -107,9 +102,9 @@ const Login = () => {
 						// Set the connected wallet in state
 						dispatch(setToken(accounts[0]));
 				setConnectedWallet(accounts[0]);
-				const state = loadStateFromLocalStorage();
+				
 
-				console.log(state,todo);
+				
 
 						// Listen for account changes
 						window.ethereum.on('accountsChanged', (newAccounts) => {
