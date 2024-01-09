@@ -34,7 +34,8 @@ function AddTodo() {
 
 
 	return (
-		<><div className='bg-black overflow-y-auto overflow-x-hidden sm:overflow-x-visible'>
+		<>
+			<div className='bg-black overflow-y-auto overflow-x-hidden sm:overflow-x-visible'>
 			<div className='flex flex-col items-center relative mx-auto mt-[50px] w-full sm:w-3/6 justify-center'>
 				
 				<div className='overflow-x-hidden overflow-y-hidden sm:overflow-visible'>

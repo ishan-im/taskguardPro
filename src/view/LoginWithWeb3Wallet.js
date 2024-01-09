@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { setToken, removeToken } from '../features/auth/authSlice';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TrusWallet from "../assets/icons/Trust-Wallet.png"
 import { loadStateFromLocalStorage } from '../utils/localStorage';
 
@@ -167,7 +166,7 @@ const Login = () => {
 								className='w-full mt-2 h-12 px-4 bg-gradient-to-br from-purple-500 to-indigo-700 rounded-[20px] shadow text-white font-semibold flex justify-center items-center gap-2 disabled:opacity-70'
 								onClick={connectTrustWallet}>
 								<img src={TrusWallet} alt='empty_wallet' className='w-10 h-10' />
-								<div> Connect Trust Wallet</div>
+								<div> Connect Trust Web Wallet</div>
 							</button>
 						</div>
 					</div>

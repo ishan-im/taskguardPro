@@ -1,20 +1,30 @@
-import React,{useEffect,useState} from 'react';
-import { useSelector,useDispatch } from 'react-redux';
-import Login from '../view/Login';
-
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Login from '../view/LoginWithWeb3Wallet';
+import SignIn from '../view/SignIn';
 
 function withValidLogin(WrappedComponent) {
-
 	return function WithValidLoginComponent(props) {
 		const token = useSelector((state) => state.auth.token);
-		console.log(token);
+
+		const jwtToken = useSelector((state) => state.auth.jwtToken);
+
+	
 
 		if (!token) {
-            return (
-							<>
-								<Login />
-							</>
-						);
+			if (!jwtToken) {
+				return (
+					<>
+						<SignIn />
+					</>
+				);
+			} else {
+				return (
+					<>
+						<Login />
+					</>
+				);
+			}
 		} else {
 			return <WrappedComponent {...props} />;
 		}

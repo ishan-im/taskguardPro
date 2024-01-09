@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loadTokenFromLocalStorage, saveTokenToLocalStorage, removeTokenFromLocalStorage } from '../../utils/localStorage';
+import { loadTokenFromLocalStorage, saveTokenToLocalStorage, removeTokenFromLocalStorage,saveJWTTokenToLocalStorage,loadJWTTokenFromLocalStorage,removeJWTTokenFromLocalStorage } from '../../utils/localStorage';
 
 
 const initialState = {
     token: loadTokenFromLocalStorage(),
+    jwtToken: loadJWTTokenFromLocalStorage()
 }
 
 export const authSlice = createSlice({
@@ -22,10 +23,22 @@ export const authSlice = createSlice({
         removeToken: (state) => {
             state.token = null;
             removeTokenFromLocalStorage();
-        }
+        },
+        getJWTToken: (state) => {
+            state.jwtToken = loadJWTTokenFromLocalStorage();
+        },
+        setJWTToken: (state, action) => {
+            state.jwtToken = action.payload;
+            saveJWTTokenToLocalStorage(state.jwtToken);
+            
+        },
+        removeJWTToken: (state) => {
+            state.jwtToken = null;
+            removeJWTTokenFromLocalStorage();
+        },
     },
 });
 
-export const { setToken, removeToken,getToken } = authSlice.actions;
+export const { setToken, removeToken,getToken, setJWTToken, removeJWTToken, getJWTToken } = authSlice.actions;
 
 export default authSlice.reducer;

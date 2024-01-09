@@ -55,10 +55,42 @@ const saveStateToLocalStorage = (state) => {
 	}
 };
 
+
+const saveJWTTokenToLocalStorage = (token) => { 
+	try {
+		localStorage.setItem('jwtToken', token);
+	} catch (error) {
+		console.error('Error saving token to local storage:', error);
+	}
+}
+
+const loadJWTTokenFromLocalStorage = () => {
+	try {
+		const token = localStorage.getItem('jwtToken');
+		if (token) {
+			return token;
+		}
+	} catch (error) {
+		console.error('Error loading token from local storage:', error);
+	}
+	return null;
+};
+
+const removeJWTTokenFromLocalStorage = () => {
+	try {
+		localStorage.removeItem('jwtToken');
+	} catch (error) {
+		console.error('Error removing token from local storage:', error);
+	}
+}
+
 export {
 	loadStateFromLocalStorage,
 	saveStateToLocalStorage,
 	saveTokenToLocalStorage,
 	loadTokenFromLocalStorage,
-	removeTokenFromLocalStorage
+	removeTokenFromLocalStorage,
+	saveJWTTokenToLocalStorage,
+	loadJWTTokenFromLocalStorage,
+	removeJWTTokenFromLocalStorage
 };
